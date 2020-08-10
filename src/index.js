@@ -25,7 +25,11 @@ mongo.connect(mongoUrl,{
 // mongo.connection.on("error",()=>console.log("not connected"))
 
 
-app.use(cors())
+// app.use(cors())
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
 require("./server/models/post")
 require("./server/models/users")
 app.use(express.json())
