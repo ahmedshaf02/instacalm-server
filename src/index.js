@@ -25,14 +25,13 @@ mongo.connect(mongoUrl,{
 // mongo.connection.on("error",()=>console.log("not connected"))
 
 
+app.use(cors())
 require("./server/models/post")
 require("./server/models/users")
-// app.use(cors())
 app.use(express.json())
 app.use(require('./server/routes/auth'))
 app.use(require('./server/routes/post'))
 app.use(require('./server/routes/user'))
-
 
 app.listen(process.env.PORT || PORT,()=>{
     console.log("server is running on port ","http://localhost:"+PORT)
