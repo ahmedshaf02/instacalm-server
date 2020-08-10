@@ -27,7 +27,7 @@ mongo.connect(mongoUrl,{
 
 require("./server/models/post")
 require("./server/models/users")
-app.use(cors())
+// app.use(cors())
 app.use(express.json())
 app.use(require('./server/routes/auth'))
 app.use(require('./server/routes/post'))
